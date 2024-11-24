@@ -38,40 +38,39 @@
 		margin: 0;
 		padding: 0;
 		background-color: #DBDBDB;
-		background-image: url('/image/background.png'); /* Replace with your image path */
-		background-size: 125%; /* Reduced size of the background image to 80% */
-		background-position: center -150px; /* Move the image upwards to raise it */
-		background-repeat: no-repeat; /* Prevent the image from repeating */
-		background-attachment: fixed; /* Keeps the image fixed while scrolling */
+		background-image: url('/image/background.png');
+		background-size: 125%;
+		background-position: center -150px;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
 		display: flex;
-		flex-direction: column; /* Allow for vertical stacking of elements */
-		min-height: 100vh; /* Full viewport height */
+		flex-direction: column;
+		min-height: 100vh;
 	}
 
-	/* Navbar styles */
 	.navbar {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
 		background-color: #515739;
-		padding: 0.5rem 1.5rem; /* Reduced padding */
+		padding: 0.5rem 1.5rem;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		width: 100%; /* Ensure navbar spans full width */
-		position: relative; /* To position the burger in relation to the navbar */
+		width: 100%;
+		position: relative;
 	}
 
 	.navbar a {
 		color: #ffffff;
 		text-decoration: none;
-		padding: 0.25rem 0.75rem; /* Reduced padding for links */
-		font-size: 0.9rem; /* Reduced font size */
+		padding: 0.25rem 0.75rem;
+		font-size: 0.9rem;
 		transition: transform 0.2s, color 0.2s;
 		border-radius: 5px;
 	}
 
 	.navbar .logo {
-		font-size: 1.2rem; /* Reduced font size */
+		font-size: 1.2rem;
 		font-weight: bold;
 		transition: transform 0.2s, color 0.2s;
 	}
@@ -87,40 +86,37 @@
 		cursor: pointer;
 		background: none;
 		border: none;
-		position: absolute; /* Positioning burger relative to navbar */
-		top: 0.5rem; /* Slightly from the top */
-		right: 1.5rem; /* Slightly from the right */
+		position: absolute;
+		top: 0.5rem;
+		right: 1.5rem;
 	}
 
 	.line {
-		width: 20px; /* Reduced width */
-		height: 2px; /* Reduced height */
+		width: 20px;
+		height: 2px;
 		background-color: #ffffff;
-		margin: 3px 0; /* Reduced margin */
+		margin: 3px 0;
 		transition: 0.3s;
 	}
 
-	/* Main content styles */
 	.main-content {
-		flex: 1; /* This ensures the content takes up the remaining space */
+		flex: 1;
 		padding: 2rem;
 		display: flex;
-		flex-direction: column; /* Allows content to stack vertically */
-		justify-content: center; /* Centers content vertically */
+		flex-direction: column;
+		justify-content: center;
 	}
 
-	/* Responsive styles */
 	@media (max-width: 768px) {
 		.navbar {
 			flex-direction: column;
 			align-items: flex-start;
 		}
 
-		/* Ensure burger appears on the top right corner */
 		.burger {
-			display: flex; /* Show burger in mobile view */
-			top: 1rem; /* Adjust top position */
-			right: 1.5rem; /* Adjust right position */
+			display: flex;
+			top: 1rem;
+			right: 1.5rem;
 		}
 
 		.navbar-links {
@@ -142,7 +138,7 @@
 
 	@media (max-width: 480px) {
 		.navbar .logo {
-			font-size: 1.1rem; /* Further reduced logo size */
+			font-size: 1.1rem;
 		}
 
 		.main-content {

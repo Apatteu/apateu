@@ -1,211 +1,183 @@
 <script>
-    let username = '';
-    let email = '';
-    let password = '';
-    let confirmPassword = '';
-    let agreeTerms = false;
-    let role = '';
-    let passwordError = ''; // Variable to store password mismatch error
+  let username = '';
+  let email = '';
+  let password = '';
+  let confirmPassword = '';
+  let agreeTerms = false;
+  let role = '';
+  let passwordError = '';
 
-    function handleSubmit() {
-      if (password !== confirmPassword) {
-        passwordError = "Passwords do not match";
-      } else {
-        passwordError = '';
-        // Proceed with form submission (for now, just logging the data)
-        console.log({ role, username, email, password, confirmPassword, agreeTerms });
-      }
-    }
-
-    function closeForm() {
-      // Logic for closing the form (for now just resetting the form fields)
-      username = '';
-      email = '';
-      password = '';
-      confirmPassword = '';
-      agreeTerms = false;
-      role = '';
+  function handleSubmit() {
+    if (password !== confirmPassword) {
+      passwordError = "Passwords do not match";
+    } else {
       passwordError = '';
+      console.log({ role, username, email, password, confirmPassword, agreeTerms });
     }
+  }
 </script>
 
 <style>
-  /* Reset margin and padding for the body and html to remove unwanted space */
-  :global(html, body) {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+:global(html, body) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f7f7f7;
+}
 
+.create-account {
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 410px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 5px;
+  position: relative;
+}
+
+.create-account h2 {
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 240px;
+  margin: 0.5rem auto;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #ff6a00;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 0.4rem;
+  text-align: left;
+  width: 80%;
+  max-width: 240px;
+  margin: 0.4rem auto;
+  gap: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 0.3rem;
+}
+
+.checkbox-container label {
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0;
+}
+
+.checkbox-container a {
+  color: #ff6a00;
+  text-decoration: none;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #ff6a00;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 300px;
+  margin: 1rem auto 0;
+}
+
+.action-button {
+  background-color: #ff6a00;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.action-button:hover {
+  background-color: #e65a00;
+}
+
+.action-button.close {
+  background-color: #a7a7a7;
+  color: #fffbfb;
+}
+
+.action-button.close:hover {
+  background-color: #858585;
+}
+
+@media (max-width: 768px) {
   .create-account {
-    text-align: center;
-    padding: 0.6rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    width: 410px;
-    max-width: 100%;
-    margin: 0 auto;
-    /* Explicitly remove margin-top */
+    width: 90%;
     margin-top: 0;
-    /* Ensure no padding is adding space around the container */
-    padding-top: 0;
-  }
-
-  .create-account h2 {
-    margin-bottom: 0.8rem;
-    color: #333;
-    font-size: 1.3rem;
-    font-weight: bold;
   }
 
   .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 240px;
-    margin: 0.5rem auto;
-    text-align: left;
-  }
-
-  .form-group label {
-    font-size: 0.8rem;
-    color: #555;
-    margin-bottom: 0.2rem;
-    font-weight: 500;
-  }
-
-  .form-group input,
-  .form-group select {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    outline: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus {
-    border-color: #ff6a00;
   }
 
   .checkbox-container {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    color: #555;
-    margin-top: 0.4rem;
-    text-align: left;
-    width: 80%;
-    max-width: 240px;
-    margin: 0.4rem auto;
-    gap: 10px;
+    width: 100%;
   }
 
-  .checkbox-container input[type="checkbox"] {
-    margin-right: 0.3rem;
+  .create-account h2 {
+    font-size: 1.1rem;
   }
 
-  .checkbox-container label {
-    font-size: 0.8rem;
-    color: #555;
-    margin: 0;
+  .action-buttons {
+    width: 100%;
   }
+}
 
-  .checkbox-container a {
-    color: #ff6a00;
-    text-decoration: none;
+@media (max-width: 480px) {
+  .create-account {
+    width: 95%;
   }
-
-  .checkbox-container a:hover {
-    text-decoration: underline;
-  }
-
-  .create-account .button-container {
-    display: flex;
-    justify-content: space-between; /* Push the buttons to opposite sides */
-    width: 80%;
-    max-width: 240px;
-    margin-top: 1rem;
-  }
-
-  .close-button {
-    background-color: #ccc;
-    width: 110px; /* Set the width of the Close button */
-    padding: 0.5rem;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 0.85rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none; /* Remove underline */
-  }
-
-  .close-button:hover {
-    background-color: #999;
-  }
-
-  .submit-button {
-    background-color: #ff6a00;
-    width: 110px; /* Set the width of the Create button */
-    padding: 0.5rem;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 0.85rem;
-    cursor: pointer;
-    margin-left: auto; /* Move the Create button to the far right */
-  }
-
-  .submit-button:hover {
-    background-color: #e65b00;
-  }
-
-  .error-message {
-    color: #ff6a00;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-  }
-
-  /* Responsive Styling */
-  @media (max-width: 768px) {
-    .create-account {
-      width: 90%; /* Increase width on smaller screens */
-      margin-top: 0; /* Ensure no margin-top on small screens */
-    }
-
-    .form-group {
-      width: 100%; /* Allow the input fields to use the full width on smaller screens */
-    }
-
-    .checkbox-container {
-      width: 100%; /* Allow the checkbox container to span the full width */
-    }
-
-    .create-account h2 {
-      font-size: 1.1rem; /* Make the heading smaller on mobile */
-    }
-
-    .submit-button,
-    .close-button {
-      width: 100%; /* Make buttons full width on smaller screens */
-      margin: 0.5rem 0;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .create-account {
-      width: 95%; /* Increase width for extremely small screens */
-    }
-
-    .submit-button,
-    .close-button {
-      width: 100%; /* Full width buttons */
-      padding: 0.7rem;
-    }
-  }
+}
 </style>
 
 <div class="create-account">
@@ -280,11 +252,9 @@
       </label>
     </div>
 
-    <!-- Buttons: Close on left, Submit on right -->
-    <div class="button-container">
-      <!-- Close button with href (navigates to a different page) -->
-      <a href="/" class="close-button">Close</a>
-      <button type="submit" class="submit-button">Create</button>
+    <div class="action-buttons">
+      <a href="./" class="action-button close">Close</a>
+      <button class="action-button" type="submit">Submit</button>
     </div>
   </form>
 </div>
